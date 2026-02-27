@@ -1,5 +1,6 @@
 package dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,4 @@ public record RequestDTO(
 
         String body,
         String createdAt,
-        List<NoteTag> tags
-
-) {
-}
+        List<NoteTag> tags) {}
