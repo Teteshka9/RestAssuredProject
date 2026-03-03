@@ -43,9 +43,13 @@ dependencies {
     implementation ("jakarta.validation:jakarta.validation-api:3.0.2")
     implementation ("org.glassfish:jakarta.el:4.0.2") // Нужен для парсинга сообщений
 
-
+    implementation("org.springframework.boot:spring-boot-starter-validation:3.2.0")
 }
 
 tasks.test {
     useJUnitPlatform()
+
+    systemProperty("api.token", (findProperty("api.token") ?: "no_token_found") as String)
+    systemProperty("public_api_key", findProperty("public_api_key") ?: "")
+    systemProperty("dev_api_key", findProperty("dev_api_key") ?: "")
 }
